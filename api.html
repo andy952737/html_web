@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+   
+<script>
+const apiUrl = 'https://adm-skyai.mkrlab.cc/api/v1/users';  // 请替换成实际的API端点地址
+
+const requestData = {
+  user: {
+    email: 'test5@example.com'
+  }
+};
+
+// 使用fetch发送POST请求
+fetch(apiUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    // 如果需要授权，可以添加Authorization头
+    // 'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
+  },
+  body: JSON.stringify(requestData)
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log('API:', data);
+    // 在这里处理API响应
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    // 在这里处理错误
+  });
+
+</script>
+
+</body>
+</html>
